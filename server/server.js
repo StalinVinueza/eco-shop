@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 
-app.use( clienteRoutes); // Rutas de clientes
+app.use(clienteRoutes); // Rutas de clientes
 
 // Ruta básica
 app.get('/', (req, res) => {
