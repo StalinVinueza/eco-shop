@@ -12,6 +12,9 @@ app.use(express.json());
 // Ruta de prueba para verificar la conexión a la base de datos
 
 
+
+app.use( clienteRoutes); // Rutas de clientes
+
 // Ruta básica
 app.get('/', (req, res) => {
   res.send('¡Bienvenido al servidor Eco-Shop!');

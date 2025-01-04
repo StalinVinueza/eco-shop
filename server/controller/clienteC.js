@@ -1,4 +1,5 @@
-const pool = require('../dbconection.js'); // Importar la conexión a la base de datos
+const pool = require('../config/dbconection.js'); // Importar la conexión a la base de datos
+
 
 // Obtener todos los clientes
 exports.getClientes = async (req, res) => {
