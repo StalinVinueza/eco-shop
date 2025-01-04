@@ -1,5 +1,7 @@
 const express = require('express');
 const pool = require('./config/dbconection.js'); // Archivo de conexión de la base de datos
+const bodyParser = require('body-parser');
+const clienteRoutes = require('./routes/clienteR.js'); 
 
 const app = express();
 const PORT = 3000;
