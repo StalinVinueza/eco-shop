@@ -11,7 +11,16 @@ const app = express();
 const PORT = 3000;
 
 
-app.use(cors()); // Habilitar CORS
+const corsOptions = {
+  origin: 'http://127.0.0.1:5500', // Asegúrate de que la URL de origen coincida exactamente
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions)); // Habilitar CORS con configuración personalizada
+
+
+
 // Middleware para parsear JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
