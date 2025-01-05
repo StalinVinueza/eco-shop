@@ -18,10 +18,14 @@ function loadCliente() {
             <td>${cliente.id_cliente}</td>
             <td>${cliente.nombre_cliente}</td>
             <td>${cliente.apellido_cliente}</td>
-            <td>${cliente.email_cliente}</td>
+            <td>${cliente.ci_cliente}</td>
+            <td>${cliente.genero_cliente}</td>
+            <td>${cliente.edad_cliente}</td>
+            <td>${cliente.direccion_cliente}</td>
             <td>${cliente.telefono_cliente}</td>
+            <td>${cliente.correo_cliente}</td>
             <td>
-              <button onclick="editCliente(${cliente.id_cliente})">Editar</button>
+              
               <button onclick="deleteCliente(${cliente.id_cliente})">Eliminar</button>
             </td>
           </tr>
@@ -31,7 +35,6 @@ function loadCliente() {
     })
     .catch(error => console.error('Error al cargar clientes:', error));
 }
-
 // Mostrar formulario para crear/editar
 function showCreateForm() {
   document.getElementById('form-container').style.display = 'block';
@@ -40,30 +43,44 @@ function showCreateForm() {
 
 // Guardar cliente (crear o actualizar)
 function saveCliente(event) {
-  event.preventDefault();
-  const id = document.getElementById('clienteId').value;
+  event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+
+  const id = document.getElementById('clienteId').value; // Obtener el ID del cliente
+  const isUpdate = id && id !== ''; // Verificar si estamos actualizando (si id está presente)
+
   const data = {
     nombre_cliente: document.getElementById('nombre').value,
     apellido_cliente: document.getElementById('apellido').value,
-    email_cliente: document.getElementById('email').value,
+    ci_cliente: document.getElementById('ci').value,
+    genero_cliente: document.getElementById('genero').value,
+    edad_cliente: parseInt(document.getElementById('edad').value, 10),  // Asegúrate de convertir a número
+    direccion_cliente: document.getElementById('direccion').value,
     telefono_cliente: document.getElementById('telefono').value,
+    correo_cliente: document.getElementById('correo').value,
   };
-  const method = id ? 'PUT' : 'POST';
-  const url = id ? `${API_URL}/${id}` : API_URL;
+
+  const url = isUpdate ? `${API_URL}/${id}` : API_URL; // Si estamos actualizando, añadimos el ID a la URL
 
   fetch(url, {
-    method,
+    method: isUpdate ? 'PUT' : 'POST', // Si es actualización, usamos PUT; si es creación, usamos POST
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   })
-    .then(response => response.json())
-    .then(() => {
-      alert('Cliente guardado correctamente');
-      document.getElementById('form-container').style.display = 'none';
-      loadClientes();
-    })
-    .catch(error => console.error('Error al guardar cliente:', error));
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error al guardar cliente');
+    }
+    return response.json();
+  })
+  .then(() => {
+    alert(isUpdate ? 'Cliente actualizado correctamente' : 'Cliente creado correctamente');
+    loadCliente();  // Recargar la lista de clientes
+  })
+  .catch(error => {
+    console.error('Error al guardar cliente:', error);
+  });
 }
+
 
 // Editar cliente
 function editCliente(id) {
