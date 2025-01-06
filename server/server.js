@@ -13,7 +13,7 @@ const PORT = 3000;
 
 const corsOptions = {
   origin: 'http://127.0.0.1:5500', // Asegúrate de que la URL de origen coincida exactamente
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
   allowedHeaders: ['Content-Type'],
 };
 

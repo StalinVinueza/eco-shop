@@ -3,13 +3,14 @@ const pool = require('../config/dbconection.js'); // Importar la conexión a la 
 
 // Obtener todos los clientes
 exports.getClientes = async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM CLIENTE');
-        res.status(200).json(result.rows);
-    } catch (error) {
-        console.error('Error al obtener clientes:', error.message);
-        res.status(500).send('Error al obtener clientes.');
-    }
+  try {
+      // Consulta SQL con ORDER BY
+      const result = await pool.query('SELECT * FROM CLIENTE ORDER BY ID_CLIENTE');
+      res.status(200).json(result.rows);
+  } catch (error) {
+      console.error('Error al obtener clientes:', error.message);
+      res.status(500).send('Error al obtener clientes.');
+  }
 };
 
 // Obtener un cliente por ID
@@ -117,33 +118,59 @@ exports.createCliente = async (req, res) => {
 // };
 
 
-exports.updateCliente = async (req, res) => {
-    const { id } = req.params;
-    const { nombre_cliente, apellido_cliente, ci_cliente, genero_cliente, edad_cliente, direccion_cliente, telefono_cliente, correo_cliente } = req.body;
-  
-    if (!nombre_cliente || !apellido_cliente || !ci_cliente || !genero_cliente || !edad_cliente || !direccion_cliente || !telefono_cliente || !correo_cliente) {
-      return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
-    }
-  
-    try {
-      // Intentar actualizar el cliente
-      const result = await db.query(
-        `UPDATE CLIENTE
-        SET nombre_cliente = $1, apellido_cliente = $2, ci_cliente = $3, genero_cliente = $4, edad_cliente = $5, direccion_cliente = $6, telefono_cliente = $7, correo_cliente = $8
-        WHERE id_cliente = $9 RETURNING *`,
-        [nombre_cliente, apellido_cliente, ci_cliente, genero_cliente, edad_cliente, direccion_cliente, telefono_cliente, correo_cliente, id]
-      );
-  
-      if (result.rowCount === 0) {
-        return res.status(404).json({ message: 'Cliente no encontrado' });
+
+exports.updateCliente = (req, res) => {
+  const id = req.params.id;
+  const { 
+      nombre_cliente, 
+      apellido_cliente, 
+      ci_cliente, 
+      genero_cliente, 
+      edad_cliente, 
+      direccion_cliente, 
+      telefono_cliente, 
+      correo_cliente 
+  } = req.body;
+
+  const sql = `
+      UPDATE cliente
+      SET 
+          nombre_cliente = $1, 
+          apellido_cliente = $2, 
+          ci_cliente = $3, 
+          genero_cliente = $4, 
+          edad_cliente = $5, 
+          direccion_cliente = $6, 
+          telefono_cliente = $7, 
+          correo_cliente = $8
+      WHERE id_cliente = $9
+  `;
+
+  pool.query(
+      sql, 
+      [
+          nombre_cliente, 
+          apellido_cliente, 
+          ci_cliente, 
+          genero_cliente, 
+          edad_cliente, 
+          direccion_cliente, 
+          telefono_cliente, 
+          correo_cliente, 
+          id
+      ], 
+      (err, result) => {
+          if (err) {
+              console.error('Error al actualizar cliente:', err);
+              res.status(500).send({ error: 'Error al actualizar cliente' });
+          } else if (result.rowCount === 0) {
+              res.status(404).send({ message: 'Cliente no encontrado' });
+          } else {
+              res.status(200).send({ message: 'Cliente actualizado correctamente' });
+          }
       }
-  
-      res.status(200).json({ message: 'Cliente actualizado correctamente', cliente: result.rows[0] });
-    } catch (error) {
-      console.error('Error al actualizar cliente:', error);
-      res.status(500).json({ message: 'Error al actualizar cliente', error: error.message });
-    }
-  };
+  );
+};
   
 // Eliminar un cliente
 exports.deleteCliente = async (req, res) => {
