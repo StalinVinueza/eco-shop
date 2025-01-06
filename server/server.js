@@ -4,6 +4,8 @@ const methodOverride = require('method-override');
 const pool = require('./config/dbconection.js'); // Archivo de conexión de la base de datos
 const bodyParser = require('body-parser');
 const clienteRoutes = require('./routes/clienteR.js'); 
+const emprendimientoRoutes = require('./routes/emprendimientoR.js');
+const productoRoutes = require('./routes/productoR.js');
 const path = require('path');
 const cors = require('cors'); // Importar CORS
 
@@ -28,6 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rutas de clientes
 app.use(clienteRoutes); // Ya manejas las rutas en clienteR.j
+app.use(emprendimientoRoutes);
+app.use(productoRoutes);
 // // Rutas
 // app.use('/cliente', clienteRoutes); // Rutas del cliente
 
@@ -40,9 +44,6 @@ app.use(express.static('client'));
 
 // app.use(methodOverride('_method'));
 // app.use(express.static(path.join(__dirname, 'client/views')));
-
-// Rutas de clientes
-app.use(clienteRoutes); // Ya manejas las rutas en clienteR.js
 
 // Ruta básica
 app.get('/', (req, res) => {

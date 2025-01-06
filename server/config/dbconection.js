@@ -3,10 +3,10 @@ const { Pool } = require('pg');
 // Configuración de conexión
 const pool = new Pool({
   user: 'postgres',
-  host: '',
-  database: 'eco_shop',
-  password: 'Romi19',
-  port: 5432, // Puerto por defecto de PostgreSQL
+  host: '127.0.0.1',
+  database: 'eco',
+  password: 'Lemat5555.',
+  port: 5433, // Puerto por defecto de PostgreSQL
 });
 
 
@@ -33,14 +33,3 @@ pool.connect((err, client, release) => {
 //   }
 // })();
 
-// (async () => {
-//     try {
-//       const queryText = 'SELECT * FROM vw_eco_shop'; // Consulta SQL
-//       const res = await pool.query(queryText); // Ejecuta la consulta
-//       console.log('Registros encontrados:', res.rows); // Muestra los datos
-//     } catch (err) {
-//       console.error('Error ejecutando la consulta:', err.stack);
-//     } finally {
-//       await pool.end(); // Finaliza la conexión
-//     }
-//   })();

@@ -9,5 +9,12 @@ router.post('/cliente', clienteController.createCliente); // Crear un cliente
 router.put('/cliente/:id', clienteController.updateCliente); // Actualizar cliente
 router.delete('/cliente/:id', clienteController.deleteCliente); // Eliminar cliente
 
+
+
+
+
+
+
+
 module.exports = router;
 
