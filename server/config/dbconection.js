@@ -3,10 +3,10 @@ const { Pool } = require('pg');
 // Configuración de conexión
 const pool = new Pool({
   user: 'postgres',
-  host: '127.0.0.1',
-  database: 'eco',
-  password: 'Lemat5555.',
-  port: 5433, // Puerto por defecto de PostgreSQL
+  host: '',
+  database: 'ecoShop',
+  password: '1234',
+  port: 5432, // Puerto por defecto de PostgreSQL
 });
 
 
