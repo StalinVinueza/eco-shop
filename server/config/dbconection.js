@@ -8,8 +8,8 @@ const pool = new Pool({
   // password: '1234',
 
   //Stalin
-  // database: 'eco_shop',
-  // password: 'Romi19',
+  database: 'eco_shop',
+  password: 'Romi19',
   port: 5432, // Puerto por defecto de PostgreSQL
 });
 

@@ -19,6 +19,7 @@
     <section class="text-center mb-4">
       <button class="btn btn-success" onclick="showCreateForm()">Crear Nuevo Emprendimiento</button>
     </section>
+    
     <div id="form-container" class="mb-4" style="display: none;">
       <form id="emprendimientoForm" onsubmit="saveEmprendimiento(event)" class="row g-3">
         <input type="hidden" id="emprendimientoId">
@@ -61,26 +62,8 @@
     </div>
 
     <h2 class="text-center">Lista de Emprendimientos</h2>
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead class="table-success">
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Teléfono</th>
-            <th>Dirección</th>
-            <th>Correo</th>
-            <th>Propietario</th>
-            <th>Ciudad</th>
-            <th>Logo</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody id="emprendimientosTableBody">
-          <!-- Aquí se cargarán los emprendimientos -->
-        </tbody>
-      </table>
+    <div class="row" id="emprendimientosCards">
+      <!-- Aquí se cargarán los emprendimientos -->
     </div>
   </main>
 
