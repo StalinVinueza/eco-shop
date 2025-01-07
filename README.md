@@ -30,7 +30,7 @@ Express.js
 
 Base de datos:
 
-MongoDB
+PostgreSQL
 
 Otras herramientas:
 
@@ -74,7 +74,7 @@ Express.js
 
 Database:
 
-MongoDB
+PostgreSQL
 
 Other Tools:
 
