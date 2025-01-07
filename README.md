@@ -16,7 +16,9 @@ Interfaz interactiva: una interfaz fácil de usar para mejorar las experiencias 
 
 API de backend: API robusta para administrar datos y procesar solicitudes.
 
-Tecnologías utilizadas
+Tecnologías utilizadas:
+
+Postman
 
 Interfaz:
 
@@ -60,7 +62,9 @@ Interactive Frontend: A user-friendly interface to enhance shopping experiences.
 
 Backend API: Robust API for managing data and processing requests.
 
-Technologies Used
+Technologies Used:
+
+Postman
 
 Frontend:
 
