@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="bg-success text-white text-center py-3">
-    <h1>Gestión de Emprendimientos</h1>
+    <h1>Eco Shop</h1>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
       <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,13 +28,12 @@
           </div>
       </div>
   </nav>
-  </header>
+</header>
 
   <main class="container my-5">
     <section class="text-center mb-4">
       <button class="btn btn-success" onclick="showCreateForm()">Crear Nuevo Emprendimiento</button>
     </section>
-    
     <div id="form-container" class="mb-4" style="display: none;">
       <form id="emprendimientoForm" onsubmit="saveEmprendimiento(event)" class="row g-3">
         <input type="hidden" id="emprendimientoId">
@@ -77,8 +76,26 @@
     </div>
 
     <h2 class="text-center">Lista de Emprendimientos</h2>
-    <div class="row" id="emprendimientosCards">
-      <!-- Aquí se cargarán los emprendimientos -->
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="table-success">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Correo</th>
+            <th>Propietario</th>
+            <th>Ciudad</th>
+            <th>Logo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="emprendimientosTableBody">
+          <!-- Aquí se cargarán los emprendimientos -->
+        </tbody>
+      </table>
     </div>
   </main>
 
