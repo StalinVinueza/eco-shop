@@ -24,10 +24,14 @@ function loadEmprendimientos() {
             <td>${emprendimiento.propietario_emprendimiento}</td>
             <td>${emprendimiento.ciudad}</td>
             <td><img src="${emprendimiento.ruta_logo}" alt="Logo" width="50" height="50"></td>
-            <td>
-              <button onclick="showEditForm(${emprendimiento.id_emprendimiento})">Editar</button>
-              <button onclick="deleteEmprendimiento(${emprendimiento.id_emprendimiento})">Eliminar</button>
-            </td>
+           <td>
+  <button class="btn btn-primary btn-sm" onclick="showEditForm(${emprendimiento.id_emprendimiento})">
+    <i class="far  fa-edit"></i> Editar
+  </button>
+  <button class="btn btn-danger btn-sm" onclick="deleteEmprendimiento(${emprendimiento.id_emprendimiento})">
+    <i class="far  fa-trash-alt"></i> Eliminar
+  </button>
+</td>
           </tr>
         `;
         tbody.innerHTML += row;

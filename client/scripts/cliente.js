@@ -24,11 +24,14 @@ function loadCliente() {
             <td>${cliente.direccion_cliente}</td>
             <td>${cliente.telefono_cliente}</td>
             <td>${cliente.correo_cliente}</td>
-            <td>
-              <button onclick="showEditForm(${cliente.id_cliente})">Editar</button>
-              <button onclick="deleteCliente(${cliente.id_cliente})">Eliminar</button>
-              
-            </td>
+              <td>
+        <button class="btn btn-primary btn-sm" onclick="showEditForm(${cliente.id_cliente})">
+          <i class="far  fa-edit"></i> Editar
+        </button>
+        <button class="btn btn-danger btn-sm" onclick="deleteCliente(${cliente.id_cliente})">
+          <i class="far  fa-trash-alt"></i> Eliminar
+        </button>
+      </td>
           </tr>
         `;
         tbody.innerHTML += row;
