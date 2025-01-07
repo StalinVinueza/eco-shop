@@ -20,10 +20,15 @@ function loadProducto() {
             <td>${producto.costo_producto}</td>
             <td>${producto.stock}</td>
             <td><img src="${producto.ruta_imagen}" alt="${producto.nombre_producto}" width="50"></td>
-            <td>
-              <button onclick="showEditForm(${producto.id_producto})">Editar</button>
-              <button onclick="deleteProducto(${producto.id_producto})">Eliminar</button>
-            </td>
+        <td>
+  <button class="btn btn-primary btn-sm" onclick="showEditForm(${producto.id_producto})">
+    <i class="far  fa-edit"></i> Editar
+  </button>
+  <button class="btn btn-danger btn-sm" onclick="deleteProducto(${producto.id_producto})">
+    <i class="far  fa-trash-alt"></i> Eliminar
+  </button>
+</td>
+
           </tr>
         `;
         tbody.innerHTML += row;
