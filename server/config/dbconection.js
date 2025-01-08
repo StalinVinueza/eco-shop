@@ -7,13 +7,11 @@ const pool = new Pool({
   // database: 'ecoShop',
   // password: '1234',
 
-  //Stalin
-  database: 'eco',
-  password: 'Lemat5555.',
-  
-  port: 5433, // Puerto por defecto de PostgreSQL
-});
+  database: 'eco_shop',
+  password: 'Romi19',
 
+  port: 5432, // Puerto por defecto de PostgreSQL
+});
 
 // Verificar conexión
 pool.connect((err, client, release) => {

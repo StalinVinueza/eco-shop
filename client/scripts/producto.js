@@ -10,28 +10,30 @@ function loadProducto() {
   fetch(API_URL)
     .then(response => response.json())
     .then(productos => {
-      const tbody = document.getElementById('productosTableBody');
-      tbody.innerHTML = '';
+      const cardContainer = document.getElementById('productosCardContainer');
+      cardContainer.innerHTML = '';
       productos.forEach(producto => {
-        const row = `
-          <tr>
-            <td>${producto.id_producto}</td>
-            <td>${producto.nombre_producto}</td>
-            <td>${producto.costo_producto}</td>
-            <td>${producto.stock}</td>
-            <td><img src="${producto.ruta_imagen}" alt="${producto.nombre_producto}" width="50"></td>
-        <td>
-  <button class="btn btn-primary btn-sm" onclick="showEditForm(${producto.id_producto})">
-    <i class="far  fa-edit"></i> Editar
-  </button>
-  <button class="btn btn-danger btn-sm" onclick="deleteProducto(${producto.id_producto})">
-    <i class="far  fa-trash-alt"></i> Eliminar
-  </button>
-</td>
-
-          </tr>
+        const card = `
+          <div class="card" style="width: 18rem; margin: 1rem;">
+            <img src="${producto.ruta_imagen}" class="card-img-top" alt="${producto.nombre_producto}" style="height: 150px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title">${producto.nombre_producto}</h5>
+              <p class="card-text">
+                <strong>Costo:</strong> $${producto.costo_producto}<br>
+                <strong>Stock:</strong> ${producto.stock}
+              </p>
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-primary btn-sm" onclick="showEditForm(${producto.id_producto})">
+                  <i class="far fa-edit"></i> Editar
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="deleteProducto(${producto.id_producto})">
+                  <i class="far fa-trash-alt"></i> Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
         `;
-        tbody.innerHTML += row;
+        cardContainer.innerHTML += card;
       });
     })
     .catch(error => console.error('Error al cargar productos:', error));

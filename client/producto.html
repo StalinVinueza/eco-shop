@@ -34,56 +34,46 @@
   </nav>
 </header>
   
-  <main class="container my-5">
-    <section class="text-center mb-4">
-      <h2>Gestión de Productos</h2>
-      <button class="btn btn-success mb-3" onclick="showCreateForm()">Crear Nuevo Producto</button>
-    </section>
+<main class="container my-5">
+  <section class="text-center mb-4">
+    <h2>Gestión de Productos</h2>
+    <button class="btn btn-success mb-3" onclick="showCreateForm()">Crear Nuevo Producto</button>
+  </section>
 
-    <div id="form-container" class="mb-4" style="display: none;">
-      <form id="productoForm" onsubmit="saveProducto(event)" class="row g-3">
-        <input type="hidden" id="productoId">
-        <div class="col-md-6">
-          <label for="nombre" class="form-label">Nombre del Producto:</label>
-          <input type="text" id="nombre" class="form-control" required>
-        </div>
-        <div class="col-md-6">
-          <label for="costo" class="form-label">Costo:</label>
-          <input type="number" id="costo" class="form-control" required>
-        </div>
-        <div class="col-md-6">
-          <label for="stock" class="form-label">Stock:</label>
-          <input type="number" id="stock" class="form-control" required>
-        </div>
-        <div class="col-md-6">
-          <label for="imagen" class="form-label">Ruta de Imagen:</label>
-          <input type="text" id="imagen" class="form-control">
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Guardar</button>
-        </div>
-      </form>
-    </div>
+  <div id="form-container" class="mb-4" style="display: none;">
+    <form id="productoForm" onsubmit="saveProducto(event)" class="row g-3">
+      <input type="hidden" id="productoId">
+      <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre del Producto:</label>
+        <input type="text" id="nombre" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="costo" class="form-label">Costo:</label>
+        <input type="number" id="costo" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="stock" class="form-label">Stock:</label>
+        <input type="number" id="stock" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="imagen" class="form-label">Ruta de Imagen:</label>
+        <input type="text" id="imagen" class="form-control">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
 
-    <h3 class="text-center">Lista de Productos</h3>
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead class="table-success">
-          <tr>
-            <th>ID</th>
-            <th>Nombre del Producto</th>
-            <th>Costo</th>
-            <th>Stock</th>
-            <th>Imagen</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody id="productosTableBody">
-          <!-- Aquí se cargarán los productos -->
-        </tbody>
-      </table>
-    </div>
-  </main>
+  <h3 class="text-center">Lista de Productos</h3>
+  <!-- <div id="productosContainer" class="row g-3"> -->
+
+    <div id="productosCardContainer" class="d-flex flex-wrap"></div>
+
+    <!-- Aquí se cargarán los productos en formato de cards -->
+  </div>
+</main>
+
 
   <footer class="bg-secondary bg-gradient text-light py-4">
     <div class="container-lg">
