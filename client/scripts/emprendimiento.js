@@ -15,7 +15,11 @@ function loadEmprendimientos() {
       emprendimientos.forEach(emprendimiento => {
         const card = `
           <div class="card" style="width: 18rem; margin: 10px;">
+<<<<<<< HEAD
             <img src="${emprendimiento.ruta_logo}" class="card-img-top" alt="Logo" "style="height: 200px;">
+=======
+            <img src="${emprendimiento.ruta_logo}" class="card-img-top" alt="Logo" " style="height: 200px; object-fit: cover;">
+>>>>>>> cdb65e68d8f7a25885d1e1ced46a393f69f3a301
             <div class="card-body">
               <h5 class="card-title">${emprendimiento.nombre_emprendimento}</h5>
               <p class="card-text"><strong>Tipo:</strong> ${emprendimiento.tipo_emprendimiento}</p>

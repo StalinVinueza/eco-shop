@@ -15,7 +15,7 @@ function loadProducto() {
       productos.forEach(producto => {
         const card = `
           <div class="card" style="width: 18rem; margin: 1rem;">
-            <img src="${producto.ruta_imagen}" class="card-img-top" alt="${producto.nombre_producto}" style="height: 150px; object-fit: cover;">
+            <img src="${producto.ruta_imagen}" class="card-img-top" alt="${producto.nombre_producto}" style="height: 200px; object-fit: cover;">
             <div class="card-body">
               <h5 class="card-title">${producto.nombre_producto}</h5>
               <p class="card-text">
