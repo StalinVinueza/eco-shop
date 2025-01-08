@@ -36,51 +36,51 @@ app.get('/', (req, res) => {
   res.send('¡Bienvenido al servidor Eco-Shop!');
 });
 
-// Ruta de login
-app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+// // Ruta de login
+// app.post('/login', async (req, res) => {
+//   const { username, password } = req.body;
 
-  try {
-    const query = 'SELECT * FROM users WHERE username = ?';
-    const [rows] = await pool.query(query, [username]);
+//   try {
+//     const query = 'SELECT * FROM users WHERE username = ?';
+//     const [rows] = await pool.query(query, [username]);
 
-    if (rows.length === 0) {
-      return res.status(401).json({ message: 'Usuario no encontrado' });
-    }
+//     if (rows.length === 0) {
+//       return res.status(401).json({ message: 'Usuario no encontrado' });
+//     }
 
-    const user = rows[0];
-    if (user.password !== password) {
-      return res.status(401).json({ message: 'Contraseña incorrecta' });
-    }
+//     const user = rows[0];
+//     if (user.password !== password) {
+//       return res.status(401).json({ message: 'Contraseña incorrecta' });
+//     }
 
-    res.status(200).json({ message: 'Login exitoso' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Error en el servidor' });
-  }
-});
+//     res.status(200).json({ message: 'Login exitoso' });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Error en el servidor' });
+//   }
+// });
 
-// Ruta de registro
-app.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+// // Ruta de registro
+// app.post('/register', async (req, res) => {
+//   const { username, password } = req.body;
 
-  try {
-    const checkUserQuery = 'SELECT * FROM users WHERE username = ?';
-    const [existingUser] = await pool.query(checkUserQuery, [username]);
+//   try {
+//     const checkUserQuery = 'SELECT * FROM users WHERE username = ?';
+//     const [existingUser] = await pool.query(checkUserQuery, [username]);
 
-    if (existingUser.length > 0) {
-      return res.status(400).json({ message: 'El usuario ya existe' });
-    }
+//     if (existingUser.length > 0) {
+//       return res.status(400).json({ message: 'El usuario ya existe' });
+//     }
 
-    const insertQuery = 'INSERT INTO users (username, password) VALUES (?, ?)';
-    await pool.query(insertQuery, [username, password]);
+//     const insertQuery = 'INSERT INTO users (username, password) VALUES (?, ?)';
+//     await pool.query(insertQuery, [username, password]);
 
-    res.status(201).json({ message: 'Usuario registrado exitosamente' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Error en el servidor' });
-  }
-});
+//     res.status(201).json({ message: 'Usuario registrado exitosamente' });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Error en el servidor' });
+//   }
+// });
 
 // Iniciar servidor
 app.listen(PORT, () => {

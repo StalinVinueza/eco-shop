@@ -94,7 +94,6 @@ body {
 }
 
 
-<<<<<<< HEAD
 /* Estilos para el contenedor de las tarjetas */
 #emprendimientosContainer {
   display: flex;
@@ -162,25 +161,4 @@ body {
 
 .card-emprendimiento .btn:hover {
   background-color: #218838;
-=======
-
-/* Efecto de neón en botones */
-button:hover {
-  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-/* Efecto de neón en enlaces */
-a:hover {
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-  color: #00ff00;
-  transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-/* Opcional: Efecto de neón en inputs (campos de texto) */
-input:hover {
-  box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-  border-color: #00ff00;
-  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
->>>>>>> 41b519f6edef128c71254f6c17e00be43ae9b23f
 }
