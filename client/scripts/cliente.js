@@ -25,7 +25,7 @@ function loadCliente() {
             <td>${cliente.telefono_cliente}</td>
             <td>${cliente.correo_cliente}</td>
               <td>
-        <button class="btn btn-primary btn-sm" onclick="showEditForm(${cliente.id_cliente})">
+        <button class="btn btn-success btn-sm" onclick="showEditForm(${cliente.id_cliente})">
           <i class="far  fa-edit"></i> Editar
         </button>
         <button class="btn btn-danger btn-sm" onclick="deleteCliente(${cliente.id_cliente})">

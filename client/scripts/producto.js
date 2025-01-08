@@ -23,7 +23,7 @@ function loadProducto() {
                 <strong>Stock:</strong> ${producto.stock}
               </p>
               <div class="d-flex justify-content-between">
-                <button class="btn btn-primary btn-sm" onclick="showEditForm(${producto.id_producto})">
+                <button class="btn btn-success btn-sm" onclick="showEditForm(${producto.id_producto})">
                   <i class="far fa-edit"></i> Editar
                 </button>
                 <button class="btn btn-danger btn-sm" onclick="deleteProducto(${producto.id_producto})">
