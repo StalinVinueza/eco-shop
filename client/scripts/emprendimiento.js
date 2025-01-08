@@ -23,7 +23,7 @@ function loadEmprendimientos() {
               <p class="card-text"><strong>Correo:</strong> ${emprendimiento.correo_emprendimiento}</p>
               <p class="card-text"><strong>Propietario:</strong> ${emprendimiento.propietario_emprendimiento}</p>
               <p class="card-text"><strong>Ciudad:</strong> ${emprendimiento.ciudad}</p>
-              <button class="btn btn-primary" onclick="showEditForm(${emprendimiento.id_emprendimiento})">
+              <button class="btn btn-success" onclick="showEditForm(${emprendimiento.id_emprendimiento})">
                 <i class="far fa-edit"></i> Editar
               </button>
               <button class="btn btn-danger" onclick="deleteEmprendimiento(${emprendimiento.id_emprendimiento})">
