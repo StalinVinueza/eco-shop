@@ -8,7 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
   <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
@@ -38,6 +37,8 @@
     <section class="text-center mb-4">
       <button class="btn btn-success" onclick="showCreateForm()">Crear Nuevo Emprendimiento</button>
     </section>
+
+    <!-- Formulario para crear nuevo emprendimiento -->
     <div id="form-container" class="mb-4" style="display: none;">
       <form id="emprendimientoForm" onsubmit="saveEmprendimiento(event)" class="row g-3">
         <input type="hidden" id="emprendimientoId">
@@ -80,44 +81,20 @@
     </div>
 
     <h2 class="text-center">Lista de Emprendimientos</h2>
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead class="table-success">
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Teléfono</th>
-            <th>Dirección</th>
-            <th>Correo</th>
-            <th>Propietario</th>
-            <th>Ciudad</th>
-            <th>Logo</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody id="emprendimientosTableBody">
-          <!-- Aquí se cargarán los emprendimientos -->
-        </tbody>
-      </table>
+    <div id="emprendimientosContainer" class="d-flex flex-wrap">
+      <!-- Aquí se cargarán las tarjetas de los emprendimientos -->
     </div>
   </main>
 
   <footer class="bg-secondary bg-gradient text-light py-4">
     <div class="container-lg">
       <div class="row text-center text-md-start">
-        <!-- Descripción -->
         <div class="col-md-4 mb-4 mb-md-0">
           <div class="d-flex justify-content-center justify-content-md-start align-items-center mb-2">
             <img src="images/logo_eco_shop.svg" alt="Eco-Shop Logo" style="max-height: 50px;">
           </div>
-          <p class="small">
-            Comprometidos con el medio ambiente, ofrecemos soluciones sostenibles
-            para un estilo de vida más saludable.
-          </p>
+          <p class="small">Comprometidos con el medio ambiente, ofrecemos soluciones sostenibles para un estilo de vida más saludable.</p>
         </div>
-  
-        <!-- Enlaces útiles -->
         <div class="col-md-4 mb-4 mb-md-0">
           <h5 class="text-uppercase text-light">Enlaces útiles</h5>
           <ul class="list-unstyled small">
@@ -126,8 +103,6 @@
             <li><a href="#" class="text-light text-decoration-none">Política de devoluciones y cambios</a></li>
           </ul>
         </div>
-  
-        <!-- Contacto y Redes Sociales -->
         <div class="col-md-4">
           <h5 class="text-uppercase text-light">Contacto</h5>
           <ul class="list-unstyled small">
@@ -143,7 +118,6 @@
           </div>
         </div>
       </div>
-  
       <hr class="border-light my-4">
       <div class="text-center small">
         <p class="mb-0">© 2025 Eco-Shop. Todos los derechos reservados.</p>
