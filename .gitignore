@@ -1,3 +1,5 @@
 # excluir node_modules
 
 node_modules/
+
+.codegpt
