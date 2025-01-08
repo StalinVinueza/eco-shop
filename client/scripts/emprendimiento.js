@@ -10,35 +10,34 @@ function loadEmprendimientos() {
   fetch(API_URL)
     .then(response => response.json())
     .then(emprendimientos => {
-      const tbody = document.getElementById('emprendimientosTableBody');
-      tbody.innerHTML = '';
+      const container = document.getElementById('emprendimientosContainer');
+      container.innerHTML = ''; // Limpiar el contenedor
       emprendimientos.forEach(emprendimiento => {
-        const row = `
-          <tr>
-            <td>${emprendimiento.id_emprendimiento}</td>
-            <td>${emprendimiento.nombre_emprendimento}</td>
-            <td>${emprendimiento.tipo_emprendimiento}</td>
-            <td>${emprendimiento.telefono_emprendimiento}</td>
-            <td>${emprendimiento.direccion_emprendimiento}</td>
-            <td>${emprendimiento.correo_emprendimiento}</td>
-            <td>${emprendimiento.propietario_emprendimiento}</td>
-            <td>${emprendimiento.ciudad}</td>
-            <td><img src="${emprendimiento.ruta_logo}" alt="Logo" width="50" height="50"></td>
-           <td>
-  <button class="btn btn-primary btn-sm" onclick="showEditForm(${emprendimiento.id_emprendimiento})">
-    <i class="far  fa-edit"></i> Editar
-  </button>
-  <button class="btn btn-danger btn-sm" onclick="deleteEmprendimiento(${emprendimiento.id_emprendimiento})">
-    <i class="far  fa-trash-alt"></i> Eliminar
-  </button>
-</td>
-          </tr>
+        const card = `
+          <div class="card" style="width: 18rem; margin: 10px;">
+            <img src="${emprendimiento.ruta_logo}" class="card-img-top" alt="Logo" width="50" height="50">
+            <div class="card-body">
+              <h5 class="card-title">${emprendimiento.nombre_emprendimento}</h5>
+              <p class="card-text"><strong>Tipo:</strong> ${emprendimiento.tipo_emprendimiento}</p>
+              <p class="card-text"><strong>Teléfono:</strong> ${emprendimiento.telefono_emprendimiento}</p>
+              <p class="card-text"><strong>Correo:</strong> ${emprendimiento.correo_emprendimiento}</p>
+              <p class="card-text"><strong>Propietario:</strong> ${emprendimiento.propietario_emprendimiento}</p>
+              <p class="card-text"><strong>Ciudad:</strong> ${emprendimiento.ciudad}</p>
+              <button class="btn btn-primary" onclick="showEditForm(${emprendimiento.id_emprendimiento})">
+                <i class="far fa-edit"></i> Editar
+              </button>
+              <button class="btn btn-danger" onclick="deleteEmprendimiento(${emprendimiento.id_emprendimiento})">
+                <i class="far fa-trash-alt"></i> Eliminar
+              </button>
+            </div>
+          </div>
         `;
-        tbody.innerHTML += row;
+        container.innerHTML += card;
       });
     })
     .catch(error => console.error('Error al cargar emprendimientos:', error));
 }
+
 
 // Mostrar formulario para crear
 function showCreateForm() {
