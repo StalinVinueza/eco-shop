@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 body {
   background-color: #f4f4f4; /* Fondo claro para contrastar con las tarjetas */
   font-family: Arial, sans-serif;
@@ -96,7 +94,6 @@ body {
 }
 
 
->>>>>>> cdb65e68d8f7a25885d1e1ced46a393f69f3a301
 /* Estilos para el contenedor de las tarjetas */
 #emprendimientosContainer {
   display: flex;
